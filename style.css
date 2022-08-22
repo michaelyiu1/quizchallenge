@@ -1,0 +1,32 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 125%;
+}
+
+.time-left{
+    display: flex;
+}
+
+main {
+    text-align: center;
+}
+
+.multiple-choice{
+    flex-direction: column;
+}
+
+button{
+    font-size:20px;
+    background-color: blueviolet;
+    color: white;
+    border-radius: 10px;
+}
+
+button:hover{
+    cursor:pointer;
+    background-color: purple;
+}
+
