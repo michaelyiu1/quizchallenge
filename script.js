@@ -1,30 +1,42 @@
-//initializing variables
+//initializing variables for classes in the HTML
 let secondsLeft = document.querySelector(".seconds-left");
 let multipleChoice = document.querySelector(".multiple-choice");
 let startQuiz = document.querySelector(".start-quiz");
 let quizNumber = document.querySelector(".quiz-number");
 let multipleChoiceButton = document.getElementsByClassName("multiple-choice-button");
-console.log(multipleChoiceButton);
-console.log(quizNumber);
-console.log(multipleChoice);
+let quizQuestion = document.querySelector(".quiz-question");
 
+//Setting the multiple choice options to hidden and initializing iterators
 multipleChoice.style.visibility = "hidden";
+let qIterator = 0;
+let setAnswer = 0;
 
+
+//Array for Question Numbers
 let qNumber = ["Question 1", "Question 2","Question 3"];
 
-let answers = {
-    q1: ["frank", "George", "Will", "Scott"],
-    q2: ["frank", "George", "Will", "Scott"],
-    q3: ["frank", "George", "Will", "Scott"]
-}
+//Array for Quiz Questions
+let qList = [
+    "What is the largest mammel?",
+    "What do you get when you cross a hippo and a walrus?",
+    "How big is the smallest tortuga?"
+]
 
-console.log(answers.q1[2]);
+//Setting the Multiple Choice options for each questions
+let q1 = ["1. turtle", "1. Hippo Walrus", "1. 5 feet", "Bitch"];
+let q2 = ["2. Whale", "2. Bird", "2. 3 feet", "Bitch"];
+let q3 = ["3. Poop", "3. Curious George", "3. 75 pounds", "3. Bitch"];
+let q4 = ["4. Poop", "4. Curious George", "4. 75 pounds", "4. Bitch"];
 
+
+//Function for starting the quiz when user clicks "start quiz"
 function quiz(){
 
     startQuiz.style.display = "none";
     multipleChoice.style.visibility = "visible";
-    quizNumber.textContent = qNumber[0];
+    quizNumber.textContent = qNumber[qIterator];
+    quizQuestion.textContent = qList[qIterator];
+    qIterator++;
 
     var timer = setInterval(function() {
         let time = secondsLeft.textContent;
@@ -32,15 +44,36 @@ function quiz(){
         if(time>1){
             secondsLeft.textContent--;
         } else{
-            secondsLeft.textContent= secondsLeft.textContent--;
+            secondsLeft.textContent--;
             clearInterval(timer);
         }
         }, 1000)
 }
 
+//function for changing questions and multiple choice options after user selects an answer
 function nextquestion(){
-    console.log("hi buddy");
+    
+    
+    quizNumber.textContent = qNumber[qIterator];
+    quizQuestion.textContent = qList[qIterator];
+
+    multipleChoice.children[0].textContent = q1[setAnswer];
+    multipleChoice.children[1].textContent = q2[setAnswer];
+    multipleChoice.children[2].textContent = q3[setAnswer];
+    multipleChoice.children[3].textContent = q4[setAnswer];
+    setAnswer++;
+    
+    if(setAnswer===3){
+        setAnswer = 0;
+    }
+    
+    qIterator++;
+    if(qIterator === 3){
+        qIterator = 0;
+    }
 }
 
+
+//Event listeners
 startQuiz.addEventListener("click", quiz);
 multipleChoice.addEventListener("click",nextquestion);
