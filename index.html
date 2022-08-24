@@ -11,30 +11,32 @@
 
 <body>
     <header>
-        <a href="highscores.html"><p>View High Scores</p></a>
+        <p class="view-scores">View High Scores</p>
         <div class="time-left">
             <p>Time: </p>
-            <p class="seconds-left">60</p>
+            <p class="seconds-left">30</p>
         </div>
     </header>
 
     <main>
         <h1 class="quiz-number"> Coding Quiz Challenge</h1>
         <h3 class="quiz-question"> Try to answer as many questions as you can in 1 minute!</h3>
-        <button class="start-quiz">Start Quiz</button>
+        </div>
+        <button class="start-quiz">Start Quiz</button><br>
         <div class="multiple-choice">
             <button class="multiple-choice-button"></button>
             <button class="multiple-choice-button"></button>
             <button class="multiple-choice-button"></button>
             <button class="multiple-choice-button"></button>
         </div>
+        <button class="play-again">Play Again</button><br>
         <input type="text" id="initials">
         <input type="submit" id="submit" value="submit">
-
     </main>
-
-
-
+    <div class="scores-table">
+        <h2>Previous Score</h2>
+        <p class="previous-score">No previous score</p>
+    </div>
 
     <script src="script.js"></script>
 </body>

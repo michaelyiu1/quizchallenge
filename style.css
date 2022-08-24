@@ -37,3 +37,13 @@ button:hover{
     margin: auto;
     margin-top: 20px;
 }
+
+.view-scores:hover{
+    color: purple;
+    cursor: pointer;
+}
+
+.scores-table{
+    visibility: "hidden";
+    text-align: center;
+}
