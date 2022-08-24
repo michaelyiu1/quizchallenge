@@ -12,18 +12,17 @@ let playAgain = document.querySelector(".play-again");
 let viewScores = document.querySelector(".view-scores");
 let previousScore = document.querySelector(".previous-score");
 
-//Setting the multiple choice options and to initials input hidden and initializing iterators
+//Setting the multiple choice options and to initials input hidden
 multipleChoice.style.visibility = "hidden";
 enterInitials.style.visibility = "hidden";
 submit.style.visibility = "hidden";
 playAgain.style.visibility = "hidden";
 scoresTable.style.visibility = "hidden";
 
+//initializing iterators
 let qIterator = 0;
 let setAnswer = 0;
 let userScore = 0;
-let scoreNumber = 0;
-let scoreArray = [];
 
 
 //Array for Question Numbers
@@ -106,6 +105,7 @@ function nextquestion(){
     
     if(qIterator === 3){
         userInitials();
+        secondsLeft.textContent = "0";
         qIterator = 0;
     }
 }
@@ -137,29 +137,26 @@ function highScores(event){
     playAgain.style.visibility = "visible";
     scoresTable.style.visibility = "visible";
 
-
-    localStorage.setItem("score", enterInitials.value + " scored: " + userScore);
-    let score = localStorage.getItem('score');
+    localStorage.setItem(enterInitials.value, enterInitials.value + " scored: " + userScore);
+    let score = localStorage.getItem(enterInitials.value);
     enterInitials.style.visibility = "hidden";
     submit.style.visibility = "hidden";
 
     previousScore.textContent = score;
     userScore = 0;
-
-    scoreNumber++;
 }
 
 function viewHighScores(){
     
-    if(viewScores.textContent === "View High Scores"){
+    if(viewScores.textContent === "View Scores"){
         viewScores.textContent = "Hide Scores";
         scoresTable.style.visibility = "visible";
     } else {
-        viewScores.textContent = "View High Scores";
+        viewScores.textContent = "View Scores";
         scoresTable.style.visibility = "hidden";
     }
 
-    let score = localStorage.getItem('score');
+    let score = localStorage.getItem(enterInitials.value);
     previousScore.textContent = score;
 }
 
