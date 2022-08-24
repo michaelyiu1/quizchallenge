@@ -1,4 +1,4 @@
-//initializing variables for classes in the HTML
+//initializing variables for classes and ids in the html
 let secondsLeft = document.querySelector(".seconds-left");
 let multipleChoice = document.querySelector(".multiple-choice");
 let startQuiz = document.querySelector(".start-quiz");
@@ -51,6 +51,7 @@ function quiz(){
     let qIterator = 0;
     let setAnswer = 0;
     let userScore = 0;
+
     playAgain.style.visibility = "hidden";
     startQuiz.style.visibility = "hidden";
     scoresTable.style.visibility = "hidden";
@@ -123,6 +124,7 @@ function checkAnswer(userAnswer){
     }
 }
 
+//When the user finishes all the quiz questions, this function will be called and allow the user to input their initials
 function userInitials(){
     quizNumber.textContent = "Thank you for Playing";
     quizQuestion.textContent = "enter your initials";
@@ -131,14 +133,15 @@ function userInitials(){
     submit.style.visibility = "visible";
 }
 
+//Function is called when user submits their initials. This will add their initial and score to the scores table.
 function highScores(event){
     event.preventDefault();
 
     playAgain.style.visibility = "visible";
     scoresTable.style.visibility = "visible";
 
-    localStorage.setItem(enterInitials.value, enterInitials.value + " scored: " + userScore);
-    let score = localStorage.getItem(enterInitials.value);
+    localStorage.setItem("score", enterInitials.value + ": " + userScore);
+    let score = localStorage.getItem("score");
     enterInitials.style.visibility = "hidden";
     submit.style.visibility = "hidden";
 
@@ -146,6 +149,8 @@ function highScores(event){
     userScore = 0;
 }
 
+
+// This function allows user to toggle between viewing and hiding the scores table
 function viewHighScores(){
     
     if(viewScores.textContent === "View Scores"){
@@ -156,7 +161,7 @@ function viewHighScores(){
         scoresTable.style.visibility = "hidden";
     }
 
-    let score = localStorage.getItem(enterInitials.value);
+    let score = localStorage.getItem("score");
     previousScore.textContent = score;
 }
 
@@ -165,9 +170,8 @@ function viewHighScores(){
 startQuiz.addEventListener("click", quiz);
 playAgain.addEventListener("click",quiz);
 viewScores.addEventListener("click",viewHighScores);
+submit.addEventListener("click",highScores);
 
 for (i=0; i<multipleChoiceButton.length; i++){
     multipleChoiceButton[i].addEventListener("click",nextquestion);
 }
-
-submit.addEventListener("click",highScores);
