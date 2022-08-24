@@ -1,2 +1,18 @@
-# quizchallenge
-Build a timed coding quiz with multiple-choice questions. This app will run in the browser, and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean, polished, and responsive user interface.
+# Quiz Challenge
+
+
+## Description: 
+This browser enables users to take a coding quiz and view their scores at the end. 
+
+
+## Screenshot 
+
+![Alt text](/assets/screenshot.PNG "Optional Title")
+
+
+### Links
+
+Github: https://github.com/michaelyiu1/quizchallenge
+
+
+Deployed Link: https://michaelyiu1.github.io/quizchallenge/
