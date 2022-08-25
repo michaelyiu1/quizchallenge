@@ -30,19 +30,19 @@ let qNumber = ["Question 1", "Question 2","Question 3"];
 
 //Array for Quiz Questions
 let qList = [
-    "What is the largest mammel?",
-    "What do you get when you cross a hippo and a walrus?",
-    "How big is the smallest tortuga?",
+    "Which is the largest mammal?",
+    "What is the largest Ocean?",
+    "In meters, how long is an Olympic swimming pool?",
 ];
 
 //Setting the Multiple Choice options for each questions
-let a = ["Turtle", "Hippo Walrus", "5 feet"];
-let b = ["Whale", "Bird", "3 feet"];
-let c = ["Ring-tailed Lemur", "Curious George", "75 pounds"];
-let d = ["Dragonfly", "Curious George", "75 pound"];
+let a = ["Turtle", "Pacific Ocean", "5 feet"];
+let b = ["Whale", "Indian Ocean", "3 feet"];
+let c = ["Ring-tailed Lemur", "Atlantic Ocean", "50 meters"];
+let d = ["Dragonfly", "Lake Michigan", "75 meters"];
 
 //Setting an array for the correct answers
-answers = ["", "Whale","Hippo Walrus", "75 pounds"];
+answers = ["", "Whale","Pacific Ocean", "50 meters"];
 
 
 //Function for starting the quiz when user clicks "start quiz"
